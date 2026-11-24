@@ -118,8 +118,12 @@
     giftSection.querySelector(".eyebrow").textContent = cfg.gift.eyebrow || "";
     renderTitle(giftSection.querySelector(".sec-title"), cfg.gift.title || "");
     $(".seal__label").textContent = cfg.gift.seal || "Buka";
-    $("#letterTitle").textContent = cfg.gift.letterTitle || "";
-    $(".letter__eyebrow").textContent = cfg.gift.letterEyebrow || "Surat kecil";
+    const letterTitle = $("#letterTitle");
+    letterTitle.textContent = cfg.gift.letterTitle || "";
+    letterTitle.hidden = !cfg.gift.letterTitle;
+    const letterEyebrow = $(".letter__eyebrow");
+    letterEyebrow.textContent = cfg.gift.letterEyebrow || "";
+    letterEyebrow.hidden = !cfg.gift.letterEyebrow;
     $("#letterBody").innerHTML = (cfg.gift.paragraphs || [])
       .map((p) => `<p>${esc(p)}</p>`)
       .join("");
@@ -596,11 +600,38 @@
     if (musicTip) musicTip.textContent = playing ? "Jeda musik" : "Putar musik";
   }
 
+  let musicStartDone = false;
+
   function playMusic() {
     if (!audio.src || musicMissing) return;
+
+    const startAt =
+      !musicStartDone && Number(cfg.musicStart) > 0 ? Number(cfg.musicStart) : 0;
+
+    const seekToStart = () => {
+      if (startAt <= 0) return;
+      try {
+        if (Math.abs(audio.currentTime - startAt) > 0.5) {
+          audio.currentTime = startAt;
+        }
+      } catch (e) {}
+    };
+
+    if (startAt > 0) {
+      if (audio.readyState >= 1) {
+        seekToStart();
+      } else {
+        audio.addEventListener("loadedmetadata", seekToStart, { once: true });
+      }
+    }
+
+    // play() dipanggil langsung di dalam gestur pengguna supaya tidak
+    // diblokir kebijakan autoplay (terutama di iOS Safari).
     audio
       .play()
       .then(() => {
+        musicStartDone = true;
+        seekToStart();
         setMusicUI(true);
         fadeVolume(typeof cfg.musicVolume === "number" ? cfg.musicVolume : 0.3);
       })

@@ -68,10 +68,9 @@ window.BIRTHDAY_CONFIG = {
     eyebrow: "Satu kejutan lagi",
     title: "Ada hadiah\ndi balik segel ini",
     seal: "Buka",
-    letterEyebrow: "Surat kecil",
-    letterTitle: "Untuk kamu, yang selalu sabar",
+    letterEyebrow: "",
+    letterTitle: "Lah masih mau hadiah kahh??",
     paragraphs: [
-      "Lah masih mau hadiah kahh??",
       "Yaudah, kirim foto imut mata berbinar-binar mau minta hadiahnya.",
       "Kirim ke link berikut:",
     ],
@@ -92,4 +91,5 @@ window.BIRTHDAY_CONFIG = {
      Kalau belum ada, tombol musik otomatis nonaktif. */
   music: "assets/audio/The-Weeknd-Hong-Kong.m4a",
   musicVolume: 0.32,
+  musicStart: 131,   // mulai lagu di detik ke-131 (2:11)
 };

@@ -874,7 +874,7 @@ body.is-revealed .site { opacity: 1; pointer-events: auto; }
 }
 .letter__body p:last-child { margin-bottom: 0; }
 
-.letter__cta { margin-top: 1.6rem; }
+.letter__cta { margin-top: 1.6rem; text-align: center; }
 .letter__btn { text-decoration: none; }
 .letter__outro {
   margin: 1.1rem 0 0;
