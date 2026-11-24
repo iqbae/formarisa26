@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<title>Kartu share 1200×630</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #08050d;
+    --cream: #f6ece2;
+    --rose: #e7a3a0;
+    --gold: #d8b078;
+    --gold-2: #f1d9ad;
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Plus Jakarta Sans", -apple-system, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .card {
+    position: relative;
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background:
+      radial-gradient(760px 520px at 50% 22%, rgba(216, 176, 120, .14), transparent 66%),
+      radial-gradient(900px 600px at 50% 118%, rgba(160, 96, 112, .20), transparent 68%),
+      linear-gradient(180deg, #0b0613 0%, #08050d 55%, #0a0610 100%);
+  }
+
+  .glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+  }
+  .glow--gold {
+    left: 50%;
+    top: 300px;
+    width: 620px;
+    height: 420px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(closest-side, rgba(255, 186, 116, .22), rgba(255, 150, 90, .06) 58%, transparent 76%);
+  }
+  .glow--rose {
+    left: 50%;
+    bottom: -220px;
+    width: 820px;
+    height: 420px;
+    transform: translateX(-50%);
+    background: radial-gradient(closest-side, rgba(231, 163, 160, .16), transparent 72%);
+  }
+
+  .stars { position: absolute; inset: 0; }
+  .star {
+    position: absolute;
+    border-radius: 50%;
+    background: #fff6e8;
+  }
+
+  .frame {
+    position: absolute;
+    inset: 26px;
+    border: 1px solid rgba(216, 176, 120, .16);
+    border-radius: 4px;
+  }
+
+  .vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(120% 90% at 50% 45%, transparent 42%, rgba(4, 2, 8, .55) 100%);
+    pointer-events: none;
+  }
+
+  .content {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 70px;
+  }
+
+  .eyebrow {
+    margin: 0 0 22px;
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: .40em;
+    text-transform: uppercase;
+    color: rgba(231, 163, 160, .82);
+  }
+
+  h1 {
+    margin: 0;
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 80px;
+    line-height: 1;
+    letter-spacing: .005em;
+    color: var(--cream);
+    text-shadow: 0 2px 30px rgba(0, 0, 0, .35);
+  }
+  h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--gold-2);
+  }
+
+  .rule {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 300px;
+    margin: 26px 0 30px;
+    color: var(--gold);
+    font-size: 11px;
+  }
+  .rule span {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(216, 176, 120, .65));
+  }
+  .rule span:last-child {
+    background: linear-gradient(90deg, rgba(216, 176, 120, .65), transparent);
+  }
+
+  /* ---------- kue ---------- */
+  .cake {
+    position: relative;
+    width: 256px;
+    height: 272px;
+    filter: drop-shadow(0 26px 42px rgba(0, 0, 0, .6));
+  }
+  .cake__halo {
+    position: absolute;
+    left: 50%;
+    bottom: 42%;
+    width: 190%;
+    aspect-ratio: 1;
+    transform: translateX(-50%);
+    background: radial-gradient(closest-side, rgba(255, 186, 116, .20), rgba(255, 150, 90, .05) 52%, transparent 72%);
+    filter: blur(5px);
+  }
+  .cake__candles {
+    position: absolute;
+    left: 50%;
+    bottom: 57%;
+    height: 17%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: flex-end;
+    gap: 22px;
+    z-index: 4;
+  }
+  .candle {
+    position: relative;
+    width: 7px;
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(180deg, #f7e4d8, #e3b7a8 60%, #c89383);
+    box-shadow: inset -1px 0 0 rgba(120, 66, 60, .35), 0 2px 6px rgba(0, 0, 0, .3);
+  }
+  .candle--a { height: 82%; }
+  .candle--b { height: 100%; }
+  .candle--c { height: 90%; }
+  .candle::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    width: 1px;
+    height: 6px;
+    transform: translateX(-50%);
+    background: #4b3a35;
+  }
+  .flame {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 6px);
+    width: 13px;
+    height: 20px;
+    transform: translateX(-50%);
+    transform-origin: 50% 100%;
+    border-radius: 50% 50% 48% 48% / 62% 62% 38% 38%;
+    background: radial-gradient(ellipse at 50% 72%, #fff9e2 0 18%, #ffe08a 42%, #ffab4a 72%, rgba(255, 122, 40, .55) 100%);
+    box-shadow:
+      0 0 8px 1px rgba(255, 196, 110, .65),
+      0 0 20px 5px rgba(255, 160, 70, .28),
+      0 0 42px 12px rgba(255, 140, 60, .14);
+    z-index: 5;
+  }
+  .cake__tier {
+    position: absolute;
+    border-radius: 5px 5px 4px 4px;
+    background:
+      radial-gradient(120% 90% at 30% 8%, rgba(255, 255, 255, .5), transparent 46%),
+      linear-gradient(180deg, #f8e6d9 0%, #f1d3c4 52%, #d9a696 100%);
+    box-shadow:
+      inset -10px 0 18px -12px rgba(122, 64, 60, .45),
+      inset 10px 0 18px -12px rgba(255, 255, 255, .55),
+      0 10px 20px -14px rgba(0, 0, 0, .6);
+  }
+  .cake__tier::after {
+    content: "";
+    position: absolute;
+    left: -2%;
+    right: -2%;
+    top: -1px;
+    height: 26%;
+    background:
+      radial-gradient(circle at 50% 0, #fdf4eb 0 46%, transparent 48%) 0 0 / 17px 100% repeat-x;
+    filter: drop-shadow(0 3px 2px rgba(120, 62, 58, .14));
+  }
+  .cake__tier--bottom {
+    left: 7%;
+    bottom: 7%;
+    width: 86%;
+    height: 30%;
+  }
+  .cake__tier--top {
+    left: 22%;
+    bottom: 35%;
+    width: 56%;
+    height: 24%;
+  }
+  .cake__tier--top::after {
+    height: 34%;
+    background:
+      radial-gradient(circle at 50% 0, #fdf4eb 0 46%, transparent 48%) 0 0 / 13px 100% repeat-x;
+  }
+  .cake__tier--bottom::before {
+    content: "";
+    position: absolute;
+    inset: 34% 12% 12%;
+    background:
+      radial-gradient(circle, #e7a3a0 0 1.4px, transparent 1.6px) 6% 20% / 42% 46%,
+      radial-gradient(circle, #d8b078 0 1.4px, transparent 1.6px) 62% 12% / 36% 54%,
+      radial-gradient(circle, #fdf4eb 0 1.2px, transparent 1.4px) 30% 70% / 30% 40%;
+    opacity: .8;
+    border-radius: 3px;
+  }
+  .cake__plate {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 8%;
+    border-radius: 50%;
+    background:
+      radial-gradient(ellipse at 50% 40%, rgba(255, 255, 255, .32), transparent 62%),
+      linear-gradient(180deg, #cfb59a, #8d735c 60%, #5d4a3a);
+    box-shadow: 0 18px 30px -14px rgba(0, 0, 0, .8);
+  }
+
+  .petal {
+    position: absolute;
+    width: 9px;
+    height: 5.5px;
+    border-radius: 60% 40% 55% 45%;
+    background: linear-gradient(135deg, #e7a3a0, #b06a72);
+    opacity: .5;
+    filter: blur(.2px);
+  }
+
+  .tagline {
+    margin: 16px 0 0;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    letter-spacing: .05em;
+    color: rgba(246, 236, 226, .48);
+  }
+
+  .grain {
+    position: absolute;
+    inset: 0;
+    opacity: .05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="glow glow--gold"></div>
+    <div class="glow glow--rose"></div>
+    <div class="stars" id="stars"></div>
+    <div class="frame"></div>
+
+    <div class="content">
+      <p class="eyebrow">Sebuah kejutan kecil untuk dokter cantik-ku</p>
+      <h1>Selamat Ulang Tahun, <em>Sayang</em></h1>
+      <div class="rule"><span></span><i>✦</i><span></span></div>
+
+      <div class="cake">
+        <div class="cake__halo"></div>
+        <div class="cake__candles">
+          <span class="candle candle--a"><i class="flame"></i></span>
+          <span class="candle candle--b"><i class="flame"></i></span>
+          <span class="candle candle--c"><i class="flame"></i></span>
+        </div>
+        <div class="cake__tier cake__tier--top"></div>
+        <div class="cake__tier cake__tier--bottom"></div>
+        <div class="cake__plate"></div>
+      </div>
+
+      <p class="tagline">— untukmu, pelan-pelan —</p>
+    </div>
+
+    <div class="vignette"></div>
+    <div class="grain"></div>
+  </div>
+
+<script>
+  // bintang deterministik supaya hasil render selalu sama
+  let seed = 20261124;
+  const rnd = () => {
+    seed = (seed * 1664525 + 1013904223) % 4294967296;
+    return seed / 4294967296;
+  };
+  const sky = document.getElementById('stars');
+  const frag = document.createDocumentFragment();
+  for (let i = 0; i < 150; i++) {
+    const s = document.createElement('span');
+    s.className = 'star';
+    const size = rnd() < 0.85 ? 1 : 1.8;
+    s.style.cssText = `left:${(rnd() * 100).toFixed(2)}%;top:${(rnd() * 100).toFixed(2)}%;` +
+      `width:${size}px;height:${size}px;opacity:${(0.18 + rnd() * 0.65).toFixed(2)};` +
+      (rnd() < 0.25 ? 'background:#f1d9ad;box-shadow:0 0 6px rgba(241,217,173,.7);' : '');
+    frag.appendChild(s);
+  }
+  // kelopak rose di sekitar kue
+  const positions = [
+    [404, 556, -18], [442, 592, 12], [768, 552, 24], [806, 596, -8],
+    [500, 608, 40], [700, 610, -30], [368, 522, 8], [832, 530, -12]
+  ];
+  positions.forEach(([x, y, rot]) => {
+    const p = document.createElement('span');
+    p.className = 'petal';
+    p.style.cssText = `left:${x}px;top:${y}px;transform:rotate(${rot}deg)`;
+    frag.appendChild(p);
+  });
+  sky.appendChild(frag);
+</script>
+</body>
+</html>
