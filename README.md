@@ -107,9 +107,11 @@ Semua path di proyek ini relatif (`assets/...`), jadi tidak perlu diubah.
 - Buka di HP, cek: intro → tiup lilin → scroll → tombol hadiah.
 - Kalau musik tidak muncul, pastikan nama file tepat `music.mp3` (huruf kecil semua).
 - Gambar preview link sudah tersedia di `assets/img/share.jpg` (1200×630 px) dan
-  meta `og:image` / `twitter:image` sudah dipasang di `index.html`.
-- Kalau preview WhatsApp masih polos setelah deploy, ganti path di kedua meta itu
-  menjadi URL penuh, misalnya `https://domainmu.com/assets/img/share.jpg`.
+  meta `og:image` / `twitter:image` sudah dipasang memakai URL penuh
+  `https://formarisa26.vercel.app/assets/img/share.jpg`.
+- WhatsApp menyimpan cache preview. Kalau gambar lama masih tidak muncul,
+  bagikan dengan tambahan `?v=2` di belakang link, atau segarkan lewat
+  Facebook Sharing Debugger.
 - Mau ubah desain kartunya? Edit `assets/img/share-card.html`, lalu render ulang:
   ```bash
   cd birthday/assets/img
