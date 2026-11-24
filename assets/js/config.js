@@ -66,7 +66,7 @@ window.BIRTHDAY_CONFIG = {
   /* Kejutan / surat */
   gift: {
     eyebrow: "Satu kejutan lagi",
-    title: "Ada sesuatu\ndi balik segel ini",
+    title: "Ada hadiah\ndi balik segel ini",
     seal: "Buka",
     letterEyebrow: "Surat kecil",
     letterTitle: "Untuk kamu, yang selalu sabar",
